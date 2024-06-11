@@ -18,4 +18,14 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello World!");
 });
 
+const notFound = (req: Request, res: Response) => {
+  return res.status(404).json({
+    success: false,
+    message: "Route not found",
+    error: "",
+  });
+};
+
+app.use(notFound);
+
 export default app;
