@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { OrderServices } from "./order.service";
 
+// create an order
 const createOrder = async (req: Request, res: Response) => {
   try {
     const result = await OrderServices.createOrderIntoDB(req.body);
@@ -19,15 +20,28 @@ const createOrder = async (req: Request, res: Response) => {
   }
 };
 
+// get all orders and search orders by email
 const getAllOrders = async (req: Request, res: Response) => {
   try {
-    const result = await OrderServices.getAllOrdersFromDB();
+    const { email } = req.query;
 
-    res.status(200).json({
-      success: true,
-      message: "Orders fetched successfully!",
-      data: result,
-    });
+    const orders = await OrderServices.getAllOrdersFromDB();
+
+    if (!email) {
+      res.status(200).json({
+        success: true,
+        message: "Orders fetched successfully!",
+        data: orders,
+      });
+    } else {
+      const ordersByEmail = orders.filter((order) => order.email === email);
+
+      res.status(200).json({
+        success: true,
+        message: "Orders fetched successfully for user email!",
+        data: ordersByEmail,
+      });
+    }
   } catch (error: any) {
     res.status(500).json({
       success: false,
