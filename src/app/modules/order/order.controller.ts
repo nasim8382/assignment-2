@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { OrderServices } from "./order.service";
 import orderValidationSchema from "./order.validation";
-import { Product } from "../product/product.model";
-import { string } from "zod";
 
 // create an order
 const createOrder = async (req: Request, res: Response) => {
