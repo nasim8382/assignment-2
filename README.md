@@ -19,25 +19,20 @@ Ensure you have the following installed on your machine:
    git clone https://github.com/nasim8382/assignment-2.git
    cd assignment-2
 
-2. Install dependencies:
-   npm install
+## Install dependencies:
 
-# or
+npm install
 
-yarn install
+## Running the Application
 
-2. Running the Application
-   Start the development server:
+### Start the development server:
 
 npm run dev
 
-# or
-
-yarn dev
-
 Open your browser and navigate to http://localhost:3000 to see the application in action.
 
-Technologies Used
-1.Vite
-2.React
-3.TypeScript
+## Technologies Used
+
+- Vite
+- React
+- Typescript
