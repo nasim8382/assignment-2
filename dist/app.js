@@ -16,7 +16,7 @@ app.use("/api/products", product_route_1.ProductRoutes);
 // order routes
 app.use("/api/orders", order_route_1.OrderRoutes);
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send("Welcome to Assignment 2");
 });
 const notFound = (req, res) => {
     return res.status(404).json({
